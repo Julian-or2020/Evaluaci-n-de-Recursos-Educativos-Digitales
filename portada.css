@@ -1,0 +1,325 @@
+/* Fuente y estilos base */
+body {
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+  background: linear-gradient(135deg, #fbeaff, #e0f7fa);
+  color: #333;
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #ffffffcc;
+  padding: 15px 20px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.logo img {
+  height: 50px;
+  width: auto;
+}
+
+/* Menú de escritorio */
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 25px;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links a {
+  text-decoration: none;
+  font-weight: 500;
+  color: #3f3d56;
+  padding: 10px 14px;
+  transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: #5c4d7d;
+}
+
+/* Estilos base */
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+ 
+  padding: 10px 20px;
+}
+
+.nav-links li {
+  position: relative;
+}
+
+.nav-links > li > a {
+  color: rgb(11, 11, 117);
+  text-decoration: none;
+  padding: 10px 15px;
+  display: block;
+  transition: background 0.3s, color 0.3s;
+}
+
+/* Hover en menú principal */
+.nav-links > li > a:hover {
+  background: #1abc9c58;
+  color: #1708ec8d;
+  border-radius: 5px;
+}
+
+/* Submenús ocultos por defecto */
+.nav-links li ul {
+  list-style: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: whit;
+  min-width: 200px;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s;
+  z-index: 1000;
+}
+
+/* Estilo de los links en submenú */
+.nav-links li ul li a {
+  padding: 10px 15px;
+  color: rgb(11, 11, 117);
+  display: block;
+  text-decoration: none;
+  background-color: white;
+  transition: background 0.3s;
+}
+
+.nav-links li ul li a:hover {
+  color: #1708ec8d;
+  background-color: white;
+}
+
+/* Mostrar submenús al pasar el mouse */
+.nav-links li:hover > ul {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+  transition-delay: 0.2s; /* <-- tiempo para aparecer */
+}
+
+/* Delay al desaparecer */
+.nav-links li ul {
+  transition-delay: 0.3s; /* <-- tiempo para desaparecer */
+}
+
+
+/* Botón toggle (solo en móviles) */
+.menu-toggle {
+  background: none;
+  border: none;
+  font-size: 1.8rem;
+  cursor: pointer;
+  display: none; /* oculto en PC */
+}
+
+/* Menú lateral para móvil */
+.offcanvas-menu {
+  position: fixed;
+  top: 0;
+  left: -250px; /* oculto */
+  width: 250px;
+  height: 100%;
+  background: #fff;
+  box-shadow: 2px 0 10px rgba(0,0,0,0.2);
+  transition: left 0.3s ease;
+  padding-top: 70px;
+  z-index: 999;
+}
+
+.offcanvas-menu.active {
+  left: 0;
+}
+
+.offcanvas-menu ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.offcanvas-menu li {
+  border-bottom: 1px solid #eee;
+}
+
+.offcanvas-menu a {
+  display: block;
+  padding: 15px 20px;
+  text-decoration: none;
+  color: #333;
+  transition: background 0.3s;
+}
+
+.offcanvas-menu a:hover {
+  background: #f0f0f0;
+}
+
+/*MAIN*/
+
+/* MAIN */
+main {
+  max-width: 100%;
+  height: 100%;
+  max-height: 100%;
+  margin: 10px auto;
+  padding: 0px;
+  text-align: center;
+  position: relative;
+
+    /* Fondo animado (solo el gradiente) */
+  background: linear-gradient(
+    120deg,
+    rgba(245, 133, 73, 0.5),
+    rgba(107, 191, 89, 0.3),
+    rgba(216, 222, 113, 0.3)
+  );
+  background-size: 300% 300%;
+  animation: gradientMove 12s ease infinite;
+  overflow: hidden; /* asegura que no se salga el ::before */
+
+}
+/* Patrón fijo */
+main::before {
+  content: "";
+  position: absolute;
+  inset: 0; /* ocupa todo el main */
+  background-image: radial-gradient(rgba(0, 0, 0, 0.15) 1px, transparent 1px);
+  background-size: 20px 20px;
+  pointer-events: none; /* no bloquea clics ni texto */
+}
+
+main h1 { font-family: 'Merriweather', serif; font-size: 2.2rem; margin-bottom: 10px; }
+main .intro { font-size: 1.2rem; margin-bottom: 30px; }
+
+/* CARRUSEL */
+.carousel {
+  position: relative;
+  max-width: 100%;
+  margin: auto;
+  border-radius: 12px;
+  box-shadow: 0 8px 22px rgba(0,0,0,0.1);
+}
+.carousel-track {
+  display: flex;
+  transition: transform 0.6s ease;
+}
+.carousel img {
+  width: 100%;
+  flex-shrink: 0;
+  object-fit: cover;
+}
+
+/* Botones */
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(44,62,80,0.7);
+  border: none;
+  color: white;
+  font-size: 2rem;
+  cursor: pointer;
+  padding: 8px 14px;
+  border-radius: 50%;
+  transition: background .3s;
+}
+.carousel-btn:hover { background: var(--accent); }
+.prev { left: 15px; }
+.next { right: 15px; }
+
+/* Indicadores */
+.carousel-indicators {
+  position: absolute;
+  bottom: 15px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 8px;
+}
+.dot {
+  width: 12px; height: 12px;
+  background: rgba(255,255,255,0.6);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background .3s;
+}
+.dot.active { background: var(--accent); }
+
+@keyframes gradientMove {
+  0% {background-position: 0% 50%;}
+  50% {background-position: 100% 50%;}
+  100% {background-position: 0% 50%;}
+}
+
+.principal {
+  display: flex;
+  justify-content: center;   /* centra en horizontal */
+  align-items: center;       /* centra en vertical */
+  min-height: 100vh;         /* ocupa toda la altura de la pantalla */
+  width: 100%;               /* ocupa todo el ancho */
+  text-align: center;
+  position: relative;
+}
+
+.principal-content {
+  background: rgba(255, 255, 255, 0.85);
+  padding: 40px 60px;
+  border-radius: 16px;
+  box-shadow: 0 8px 22px rgba(0,0,0,0.12);
+  max-width: 800px;
+  width: 90%;                /* responsivo */
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+/* Hover elegante */
+.principal-content:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.18);
+}
+
+
+
+/* Autores */
+.autores h2 {
+  font-size: 1.3rem;
+  margin: 6px 0;
+  font-weight: 500;
+  color: #2c3e50;
+}
+
+
+footer {
+  background-color: white;
+  color: rgb(11, 11, 117);
+  text-align: center;
+  padding: 20px;
+  margin-top: 0px;
+   z-index: 1;
+   position: relative;
+}
+
+
+/* Responsive */
+@media (max-width: 768px) {
+  .nav-links {
+    display: none; /* se oculta en móvil */
+  }
+
+  .menu-toggle {
+    display: block; /* aparece el botón ☰ */
+  }
+}
+
+
